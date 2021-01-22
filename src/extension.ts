@@ -61,7 +61,7 @@ export function activate(context: ExtensionContext) {
 	const previewCommand = commands.registerCommand('extension.previewHandlebars', async (uri: Uri) => {
 		const templateUri = uri
 			? uri
-			: window && window.activeTextEditor && window.activeTextEditor.document.languageId === 'handlebars'
+			: window && window.activeTextEditor && window.activeTextEditor.document.languageId === 'mjml'
 				? window.activeTextEditor.document.uri
 				: null;
 

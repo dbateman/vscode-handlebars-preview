@@ -3,6 +3,7 @@ import { promises, existsSync } from 'fs';
 import { load as loadDocument } from "cheerio";
 import * as path from "path";
 import { compile, TemplateDelegate } from 'handlebars';
+import mjml2html from "mjml";
 import { showErrorMessage } from "./extension";
 
 export class PreviewPanelScope {
@@ -72,11 +73,19 @@ function getContextFileName(templateFileName: string): string {
 
 function renderTemplate(template: TemplateDelegate, templateContext, panel: PreviewPanelScope) {
     try {
-        const html = template(templateContext);
+        const mjml = template(templateContext);
+        const transform = mjml2html(mjml);
+        if(transform.errors && transform.errors.length) {
+            showErrorMessage.next({
+                panel: panel,
+                message: `Error during MJML transform: ${JSON.stringify(transform.errors)}`
+            });
+            return false;
+        }
 
         showErrorMessage.next(null);
 
-        return html;
+        return transform.html;
     } catch (err) {
         showErrorMessage.next({ panel: panel, message: `Error rendering handlebars template: ${JSON.stringify(err)}` });
         return false;

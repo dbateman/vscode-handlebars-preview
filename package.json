@@ -1,7 +1,7 @@
 {
-	"name": "handlebars-preview",
-	"displayName": "Handlebars Preview",
-	"description": "Preview Handlebars files in VS Code with custom data",
+	"name": "handlemarj-preview",
+	"displayName": "HandleMarj: Handlebars + MJML Preview",
+	"description": "Use Handlebars + MJML together to preview data driven HTML emails",
 	"publisher": "Greenbyte",
 	"version": "1.1.2",
 	"engines": {
@@ -25,31 +25,31 @@
 		"commands": [
 			{
 				"command": "extension.previewHandlebars",
-				"title": "Handlebars: Preview"
+				"title": "HandleMarj: Preview"
 			},
 			{
 				"command": "extension.generateContextFile",
-				"title": "Handlebars: Generate context file"
+				"title": "HandleMarj: Generate context file"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
 					"command": "extension.generateContextFile",
-					"when": "resourceFilename =~ /\\.(hbs|handlebars)$/",
-					"group": "Handlebars"
+					"when": "resourceFilename =~ /\\.(mjml|hbmjml)$/",
+					"group": "HandleMarj"
 				}
 			],
 			"editor/title/context": [
 				{
 					"command": "extension.previewHandlebars",
-					"when": "resourceLangId == handlebars",
-					"group": "Handlebars"
+					"when": "resourceLangId == mjml",
+					"group": "HandleMarj"
 				},
 				{
 					"command": "extension.generateContextFile",
-					"when": "resourceLangId == handlebars",
-					"group": "Handlebars"
+					"when": "resourceLangId == mjml",
+					"group": "HandleMarj"
 				}
 			]
 		}
@@ -65,6 +65,7 @@
 	"devDependencies": {
 		"@types/cheerio": "^0.22.11",
 		"@types/jest": "^24.0.15",
+		"@types/mjml": "^4.7.0",
 		"@types/node": "^10.12.21",
 		"jest": "^24.8.0",
 		"ts-jest": "^24.0.2",
@@ -77,6 +78,7 @@
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.3",
 		"handlebars": "^4.3.0",
+		"mjml": "^4.8.1",
 		"rxjs": "^6.5.2"
 	}
 }
