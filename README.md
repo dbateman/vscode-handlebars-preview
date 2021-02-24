@@ -1,7 +1,31 @@
-**How to use:**\
-Open a Handlebars file, select **Handlebars: Preview** from the command menu **or** right click on the editor tab.
+# Handlemarj - Preview MJML+Handlebars
+This is a simple extension of the [Handlebars Preview plugin](https://github.com/johnknoop/vscode-handlebars-preview) that performs the additional step of an MJML to HTML transform after the rendering of a HB template (HB->MJML->HTML).
 
-# Features
+This is a convenient way to use the power of Handlebars features in an MJML workflow - great for data-driven HTML email production and the use of partials to avoid duplication of common email elements.
+
+**Requirements**\
+You will also need the MJML VS Code extension installed for .mjml extension support, syntax highlighting etc.
+
+**How to use**\
+Open an MJML+Handlebars file (with .mjml extension), select **Handlemarj: Preview** from the command menu **or** right click on the editor tab.
+
+## Example
+```handlebars
+{#> templates/partials/layout }}
+    <mj-section>
+        <mj-column>
+            <mj-text align="left" padding="10px 25px">
+                <h1>Your Tax Invoice</h1>
+            </mj-text>
+            <mj-text>
+                <h3>{invoice.reference}</h3>
+            </mj-text>
+        </mj-column>
+    </mj-section>
+{{/templates/partials/layout}}
+```
+
+# Features (Taken Directly From Handlebars Preview)
 
 ✅ Image support\
 ✅ [Automatically scans your workspace folder(s) for partials and helpers](#partials)\
@@ -56,16 +80,3 @@ A new file named `{yourfile}.json` will be created and populated with sample dat
 > If you're using any of these features in your template, the resulting json will need some manual fixing.
 > 
 > Feel free to make a pull request if these limitations are bothering you.
-
-# Report an issue
-
-Found a problem or have a feature request? Please post an issue over at our GitHub repository:\
-https://github.com/johnknoop/vscode-handlebars-preview/issues
-
-# 2.0 roadmap
-
-
-📍 Override naming of partials using workspace-configuration\
-📍 Intellisense suggestions for partials and context data
-
-See https://github.com/johnknoop/vscode-handlebars-preview/milestone/1 for more details
