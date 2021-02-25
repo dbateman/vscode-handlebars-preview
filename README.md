@@ -1,5 +1,5 @@
-# Handlemarj - Preview MJML+Handlebars
-This is a simple extension of the [Handlebars Preview plugin](https://github.com/johnknoop/vscode-handlebars-preview) that performs the additional step of an MJML to HTML transform after the rendering of a HB template (HB->MJML->HTML).
+# Handlemarj - Preview MJML+Handlebars Templates
+This is a simple extension of the [Handlebars Preview plugin](https://github.com/johnknoop/vscode-handlebars-preview) that performs the additional step of an MJML to HTML transform after the rendering of an HB template (HB->MJML->HTML).
 
 This is a convenient way to use the power of Handlebars features in an MJML workflow - great for data-driven HTML email production and the use of partials to avoid duplication of common email elements.
 
@@ -7,9 +7,11 @@ This is a convenient way to use the power of Handlebars features in an MJML work
 You will also need the MJML VS Code extension installed for .mjml extension support, syntax highlighting etc.
 
 **How to use**\
-Open an MJML+Handlebars file (with .mjml extension), select **Handlemarj: Preview** from the command menu **or** right click on the editor tab.
+Open an MJML+Handlebars file (with .mjml extension), select **Handlemarj: Preview** from the command menu **or** right click on the editor tab. This will show you a preview of the HTML email.
 
 ## Example
+Here's a simple example using a Handlebars partial to take care of the common layout parts of an email. The partials path is relative to your VS Code workspace root. If the below template is named `invoice.mjml` then you can supply preview data in a JSON file named `invoice.mjml.json`
+
 ```handlebars
 {#> templates/partials/layout }}
     <mj-section>
@@ -18,7 +20,7 @@ Open an MJML+Handlebars file (with .mjml extension), select **Handlemarj: Previe
                 <h1>Your Tax Invoice</h1>
             </mj-text>
             <mj-text>
-                <h3>{invoice.reference}</h3>
+                <h3>{{invoice.reference}}</h3>
             </mj-text>
         </mj-column>
     </mj-section>
