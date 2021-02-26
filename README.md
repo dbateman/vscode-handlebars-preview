@@ -13,7 +13,7 @@ Open an MJML+Handlebars file (with .mjml extension), select **Handlemarj: Previe
 Here's a simple example using a Handlebars partial to take care of the common layout parts of an email. The partials path is relative to your VS Code workspace root. If the below template is named `invoice.mjml` then you can supply preview data in a JSON file named `invoice.mjml.json`
 
 ```handlebars
-{#> templates/partials/layout }}
+{{#> templates/partials/layout }}
     <mj-section>
         <mj-column>
             <mj-text align="left" padding="10px 25px">
