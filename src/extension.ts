@@ -58,7 +58,7 @@ export function activate(context: ExtensionContext) {
 		await generateContext(templateUri!.fsPath);
 	});
 
-	const previewCommand = commands.registerCommand('extension.previewHandlebars', async (uri: Uri) => {
+	const previewCommand = commands.registerCommand('extension.previewHandlemarj', async (uri: Uri) => {
 		const templateUri = uri
 			? uri
 			: window && window.activeTextEditor && window.activeTextEditor.document.languageId === 'mjml'
